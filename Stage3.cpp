@@ -10,20 +10,33 @@ using namespace std;
 // dummyGrid[row][col] == -1 represents a mine.
 // dummyGrid[row][col] >= 0 represents a blank cell with count of neighbouring mines
 
-// '*' - represents a mine
+// '*' - represents a revealed mine
 // '.' - represents an unrevealed cell
 // '-' - represents a revealed blank cell that has no neighbouring mines
-// digits 1-8 represents the number of adjacent mines corresponding to a revealed empty cell
+// digits 1-8 represents the number of adjacent mines corresponding to a revealed blank cell
 
+void guide(int sizeOfGrid, int totalMines);
 bool validCell(int row, int col, int sizeOfGrid);
 int detectSquare(int row, int col, vector<vector<int>> &dummyGrid);
 void generateMines(int totalMines, vector<vector<int>> &dummyGrid);
 bool gameMove(char type, int row, int col, bool originalDig, int &numOfCellsRevealed, int &totalMines, vector<vector<int>> &dummyGrid, vector<vector<char>> &gameGrid);
 void print(vector<vector<char>> &gameGrid);
-void guide(int sizeOfGrid, int totalMines);
+
 int chooseDifficulty();
 int setSize(int difficulty);
 int calcMines(int difficulty);
+
+void guide(int sizeOfGrid, int totalMines)
+{
+	cout << "Your minefield will be a " << sizeOfGrid << "x" << sizeOfGrid << " grid containing "
+		 << totalMines << " mines\n";
+	cout << "After every move, the current status of the minefield will be displayed automatically.\n";
+	cout << "Stick to the input format to make a valid move\n";
+	cout << "Input Format:\n";
+	cout << "R x y: Reveal the cell at (x,y)\n";
+	cout << "F x y: Flag the cell at (x,y)\n";
+	cout << "U x y: Unflag the cell at (x,y)\n\n";
+}
 
 // checks the validity of a cell
 bool validCell(int row, int col, int sizeOfGrid)
@@ -221,18 +234,6 @@ void print(vector<vector<char>> &gameGrid)
 		cout << "\n";
 	}
 	cout << "\n";
-}
-
-void guide(int sizeOfGrid, int totalMines)
-{
-	cout << "Your minefield will be a " << sizeOfGrid << "x" << sizeOfGrid << " grid containing "
-		 << totalMines << " mines\n";
-	cout << "After every move, the current status of the minefield will be displayed automatically.\n";
-	cout << "Stick to the input format to make a valid move\n";
-	cout << "Input Format:\n";
-	cout << "R x y: Reveal the cell at (x,y)\n";
-	cout << "F x y: Flag the cell at (x,y)\n";
-	cout << "U x y: Unflag the cell at (x,y)\n\n";
 }
 
 int chooseDifficulty()
