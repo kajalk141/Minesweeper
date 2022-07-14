@@ -1,9 +1,4 @@
-### Reference: [Minewsweeper](https://ankitkeshavdbg.github.io/MineSweeper/)
-
-```
-//STAGE 1
-
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 #define size 8
 int matrix[size][size];
